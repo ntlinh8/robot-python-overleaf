@@ -1,0 +1,30 @@
+Checklist for Overleaf
+========================
+1. Register/Login
+- Register/Login with empty value
+- Register/Login with wrong format email
+- Register/Login with incomplete email
+- Register with exist email
+- Login with correct email and incorrect password
+- Login with correct email and correct password
+2. Project
+- Create first project successful
+(type: Blank, example, upload, cv)
+- Copy project
+- Edit project
+- Delete project
+- Archive project
+- Download project
+3. Search project and calculate number of project is displayed
+4. Share project
+5. In project
+- create folder/file
+- upload folder/file, from another project, external url, 
+- rename folder/file
+- delete folder/file
+6. Generate PDF file
+- generate pdf file
+- recompile: auto compile: on/off
+
+
+
