@@ -14,4 +14,16 @@
 	<natures>
 		<nature>org.robotframework.ide.eclipse.main.plugin.robotNature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>libspecs/SeleniumLibrary.py</name>
+			<type>1</type>
+			<location>C:/Python39/Lib/site-packages/SeleniumLibrary/__init__.py</location>
+		</link>
+		<link>
+			<name>libspecs/args_c29f2649.arg</name>
+			<type>1</type>
+			<location>C:/Users/Admin/AppData/Local/Temp/RobotTempDir1511551024668560740/args_c29f2649.arg</location>
+		</link>
+	</linkedResources>
 </projectDescription>

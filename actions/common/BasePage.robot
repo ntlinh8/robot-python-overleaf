@@ -4,8 +4,11 @@ Resource    LibraryDefinations.robot
 Resource    GlobalConstants.robot
 *** Keywords ***
 Open Page URL
-    [Arguments]    ${url}
+    [Arguments]    ${url}    ${browser}
     SeleniumLibrary.Open Browser    ${url}
+
+Maximine Webpage
+    SeleniumLibrary.Maximize Browser Window
 
 Get Page Title
     ${title}    SeleniumLibrary.Get Title
@@ -130,7 +133,8 @@ Get Element Attribute By Locator
 Get Element Text By Locator
     [Arguments]    ${locator}    @{dynamicValues}
     ${locator}=    Get Dynamic Xpath    ${locator}    @{dynamic_values}
-    SeleniumLibrary.Get Text    ${locator}
+    ${text}=    SeleniumLibrary.Get Text    ${locator}
+    [Return]    ${text}
     
 Get Element Size
     [Arguments]    ${locator}
