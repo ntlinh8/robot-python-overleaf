@@ -3,7 +3,22 @@ Resource    ../common/BasePage.robot
 Resource    ../../interfaces/CommonUI.robot
 Resource    ../common/GlobalConstants.robot
 *** Keywords ***
-
+Open Overleaf Page
+    [Documentation]    
+    ...    [Description]    Open Overleaf Page
+    ...    [Author]         Sunny Nguyen
+    ...    [Update Date]    2023.07.15
+    Log To Console    Open Overleaf Page    
+    SeleniumLibrary.Open Browser    ${base_url}    ${browser}
+    SeleniumLibrary.Maximize Browser Window
+    
+Verify "${actualValue}" Equal "${expectedValue}"
+    [Documentation]    
+    ...    [Description]    Verify "${actualValue}" Equal "${expectedValue}"
+    ...    [Author]         Sunny Nguyen
+    ...    [Update Date]    2023.07.15
+    Log To Console    Verify "${actualValue}" Equal "${expectedValue}" 
+    Should Be Equal    ${actualValue}    ${actualValue}  
 Click To Header Link By "${headerLinkLabel}" Label
     [Documentation]    
     ...    [Description]    Click To Header Link By "${buttonLabel}" Label
@@ -31,7 +46,7 @@ Input "${text}" To Dynamic Textbox By "${textboxID}" ID
     Wait For Element Clickable    ${Common_textbox_DynamicTextboxByID}     ${textboxID}    
     Send Key To Element    ${Common_textbox_DynamicTextboxByID}    ${text}     ${textboxID}
     
-Get Error Message In Textbox With "${textboxID}" ID
+Verify Error Message In "${textboxID}" Field Equal "${expectedMessage}"
     [Documentation]    
     ...    [Description]    Get Error Message In Textbox With "${textboxID}" ID
     ...    [Author]         Sunny Nguyen
@@ -39,4 +54,4 @@ Get Error Message In Textbox With "${textboxID}" ID
     Log To Console    Get Error Message In Textbox With "${textboxID}" ID
     Wait For Element Visible    ${Common_text_DynamicErrorMessageForTextbox}      ${textboxID}
     ${actualMessage}=    Get Element Text By Locator    ${Common_text_DynamicErrorMessageForTextbox}      ${textboxID}   
-    [Return]    ${actualMessage}
+    Should Be Equal    ${expectedMessage}    ${actualMessage}    
