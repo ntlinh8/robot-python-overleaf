@@ -45,7 +45,7 @@ TC03 - Register With Incomplete Email
     Verify Error Message In "email" Field Equal "Please enter a part following '@'. 'Elon@' is incomplete."
     Verify Error Message In "passwordField" Field Equal "Please fill out this field."
 
-TC03 - Register With Exist Email
+TC04 - Register With Exist Email
     [Documentation]    
     ...    [Description]    Register With Exist Email
     ...    [Author]         Sunny Nguyen
