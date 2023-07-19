@@ -3,6 +3,19 @@ Resource    ../common/BasePage.robot
 Resource    ../../interfaces/CommonUI.robot
 Resource    ../common/GlobalConstants.robot
 *** Keywords ***
+Open Overleaf Page And Login
+    [Documentation]    
+    ...    [Description]    Open Overleaf Page And Login
+    ...    [Author]         Sunny Nguyen
+    ...    [Update Date]    2023.07.19
+    Log To Console    Open Overleaf Page And Login 
+    Open Overleaf Page
+    Click To Header Link By "Log In" Label
+    Input "${email}" To Dynamic Textbox By "email" ID
+    Input "${password}" To Dynamic Textbox By "password" ID
+    Click To Button By "Log in with your email" Label
+    Verify Header Link By "Account" Label Display
+
 Open Overleaf Page
     [Documentation]    
     ...    [Description]    Open Overleaf Page
@@ -19,6 +32,7 @@ Verify "${actualValue}" Equal "${expectedValue}"
     ...    [Update Date]    2023.07.15
     Log To Console    Verify "${actualValue}" Equal "${expectedValue}" 
     Should Be Equal    ${actualValue}    ${actualValue}  
+    
 Click To Header Link By "${headerLinkLabel}" Label
     [Documentation]    
     ...    [Description]    Click To Header Link By "${buttonLabel}" Label
@@ -48,10 +62,30 @@ Input "${text}" To Dynamic Textbox By "${textboxID}" ID
     
 Verify Error Message In "${textboxID}" Field Equal "${expectedMessage}"
     [Documentation]    
-    ...    [Description]    Get Error Message In Textbox With "${textboxID}" ID
+    ...    [Description]    Verify Error Message In "${textboxID}" Field Equal "${expectedMessage}"
     ...    [Author]         Sunny Nguyen
     ...    [Update Date]    2023.07.15
-    Log To Console    Get Error Message In Textbox With "${textboxID}" ID
+    Log To Console    Verify Error Message In "${textboxID}" Field Equal "${expectedMessage}"
     Wait For Element Visible    ${Common_text_DynamicErrorMessageForTextbox}      ${textboxID}
     ${actualMessage}=    Get Element Text By Locator    ${Common_text_DynamicErrorMessageForTextbox}      ${textboxID}   
     Should Be Equal    ${expectedMessage}    ${actualMessage}    
+    
+Verify Header Link By "${headerLinkLabel}" Label Display
+    [Documentation]    
+    ...    [Description]    Verify Header Link By "${headerLinkLabel}" Label Display
+    ...    [Author]         Sunny Nguyen
+    ...    [Update Date]    2023.07.19
+    Log To Console    Verify Header Link By "${headerLinkLabel}" Label Display 
+    Wait For Element Visible    ${Common_button_DynamicHeaderLinkByLabel}     ${headerLinkLabel}    
+    ${status}=    Is Element Displayed    ${Common_button_DynamicHeaderLinkByLabel}      ${headerLinkLabel}
+    Should Be True    ${status}
+    
+Wait For Loading Icon Invisible
+    [Documentation]    
+    ...    [Description]    Wait For Loading Icon Invisible
+    ...    [Author]         Sunny Nguyen
+    ...    [Update Date]    2023.07.19
+    Log To Console    Wait For Loading Icon Invisible
+    Wait For Element Invisible    ${Common_icon_LoadingIcon}
+    ${status}=    Is Element Undisplayed    ${Common_button_DynamicHeaderLinkByLabel}
+    Should Be True    ${status}

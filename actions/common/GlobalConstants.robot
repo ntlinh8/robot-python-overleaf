@@ -13,3 +13,7 @@ ${base_url}       ${${environment}_url}
 ${dev_url}        https://www.overleaf.com/
 ${staging_url}    https://www.overleaf.com/
 ${test_url}       https://www.overleaf.com/
+
+######
+${email}          thuylinh2409nguyen@gmail.com
+${password}       xaqLIT94@#
