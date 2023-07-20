@@ -86,6 +86,16 @@ Wait For Loading Icon Invisible
     ...    [Author]         Sunny Nguyen
     ...    [Update Date]    2023.07.19
     Log To Console    Wait For Loading Icon Invisible
+    Wait For Page Ready By JS
     Wait For Element Invisible    ${Common_icon_LoadingIcon}
-    ${status}=    Is Element Undisplayed    ${Common_button_DynamicHeaderLinkByLabel}
+    ${status}=    Is Element Undisplayed    ${Common_icon_LoadingIcon}
     Should Be True    ${status}
+    
+Verify The Current Page Title Is "${expected_title}"
+    [Documentation]    
+    ...    [Description]    Verify The Current Page Title Is "${expected_title}"
+    ...    [Author]         Sunny Nguyen
+    ...    [Update Date]    2023.07.20
+    Log To Console    Verify The Current Page Title Is "${expected_title}"
+    ${actual_title}=    Get Page Title
+    Should Be Equal    ${actual_title}    ${expected_title}

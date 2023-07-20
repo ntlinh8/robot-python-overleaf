@@ -254,13 +254,12 @@ Get Element Validation Message
     SeleniumLibrary.Execute Javascript    return arguments[0].validationMessage;    ARGUMENTS    ${element}
     
 Wait For Page Ready By JS
-    Wait Until Keyword Succeeds    ${retry_timeout}    ${retry_interval_timeout}    Is Page Ready
+    Wait Until Keyword Succeeds    ${retry_timeout}    ${retry_interval_timeout}    Page Is Ready
 
-Is Page Ready
+Page Is Ready
     ${flag1}=    SeleniumLibrary.Execute Javascript    return (window.jQuery != null) && (jQuery.active ===0);    
     ${flag2}=    SeleniumLibrary.Execute Javascript    return document.readyState        
-    ${is_ready}    Evaluate    ${flag1} and ${flag2}    
-    [Return]    ${is_ready}
+    Should Be Equal    "${flag1} & ${flag2}"    "True & complete"    
     
 Wait For Element Visible
     [Arguments]    ${locator}    @{dynamic_values}
